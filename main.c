@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "model/Model.h"
-#include "view/View.h"
-#include "controller/Controller.h"
+#include "src/model/Model.h"
+#include "src/view/View.h"
+#include "src/controller/Controller.h"
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
