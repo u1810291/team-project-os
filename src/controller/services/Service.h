@@ -5,7 +5,8 @@
 */
 #include <stdio.h>
 
-int service() {
+int service(char argv[]){
 	printf("Hello from Services.h\n");
+	printf("%s", argv);
 	return 0;
 }

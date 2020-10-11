@@ -10,7 +10,7 @@
 
 int controller() {
     printf(api());
-    printf(service());
+    printf(service("asd"));
 	printf("Hello from Controller.h\n");
 	return 0;
 }
