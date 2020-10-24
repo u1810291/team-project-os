@@ -10,6 +10,5 @@ int main(int argc, char *argv[]) {
 	printf(model());
 	printf(controller());
 	printf("Hello world\n");
-	system("pause");
 	return 0;
 }
