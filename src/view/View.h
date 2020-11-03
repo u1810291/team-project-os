@@ -13,7 +13,7 @@
 #include "components/RegisterView.h"
 #include "pages/Profile.h"
 
-int view() {
+const char * view() {
     printf(login());
     printf(Register());
     printf(profile());
