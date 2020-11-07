@@ -4,6 +4,6 @@
 
 int main() {
     connect();
-    
+    // gcc -o dbexample $(mysql_config --cflags) dbexample.c  $(mysql_config --libs)
     return 0;
 }

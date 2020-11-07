@@ -7,14 +7,11 @@ MYSQL_ROW row;
 
 
 void connect() {
-    // MYSQL *conn;
-    // MYSQL_RES *res;
-    // MYSQL_ROW row;
 
     //Here you need to provide your db cridentials
     char *server = "localhost";
     char *user = "user_db";
-    char *password = "gulnorA0924";
+    char *password = "";
     char *database = "app";
 
     conn = mysql_init(NULL);
