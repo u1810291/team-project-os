@@ -1,44 +1,38 @@
 #include <mysql/mysql.h>
 #include <stdio.h>
 
-MYSQL *conn;
-MYSQL_RES *res;
-MYSQL_ROW row;
+// MYSQL *conn;
+// MYSQL_RES *res;
+// MYSQL_ROW row;
 
 
-void connect() {
-
+int connect() {
+    MYSQL *conn;
     //Here you need to provide your db cridentials
-    char *server = "localhost";
-    char *user = "user_db";
-    char *password = "";
-    char *database = "app";
+    // char server[10] = "localhost";
+    // char user[10] = "sammy";
+    // char password[10] = "password";
+    // char database[10] = "user_db";
+    if ((conn = mysql_init(NULL)) == NULL)                                                             
+    {                                                                                                  
+        // fprintf(stderr, "Could not init DB\n");                                                 
+        // return EXIT_FAILURE;       
+        fprintf(stderr, "%s\n", mysql_error(conn));
+        mysql_close(conn);
+        exit(1);                                                                     
+    }   
+    if (mysql_real_connect(conn, "localhost", "sammy", "password", "user_db", 0, NULL, 0) == NULL)             
+    {                                                                                                  
+        // fprintf(stderr, "DB Connection Error\n");                                                        
+        // return EXIT_FAILURE;   
+        fprintf(stderr, "%s\n", mysql_error(conn));
+        mysql_close(conn);
+        exit(1);                                                                           
+    }
+    // mysql_free_result(conn);
+    mysql_close(conn);
+    return EXIT_SUCCESS; 
 
-    conn = mysql_init(NULL);
-
-    /* Connect to database */
-    // if (!mysql_real_connect(conn, server,
-    //     user, password, database, 0, NULL, 0)) {
-    //     fprintf(stderr, "%s\n", mysql_error(conn));
-    //     exit(1);
-    // }
-
-    /* send SQL query */
-    // if (mysql_query(conn, "show tables")) {
-    //     fprintf(stderr, "%s\n", mysql_error(conn));
-    //     exit(1);
-    // }
-
-    // res = mysql_use_result(conn);
-    //This is the sample of how to use database
-
-    // printf("MySQL Tables in mysql database:\n");
-    // while ((row = mysql_fetch_row(res)) != NULL)
-    //     printf("%s \n", row[0]);
-
-    // mysql_free_result(res);
-    // mysql_close(conn);
-    // return *conn;
 }
 void close_connection(MYSQL *conn) {
     mysql_close(conn);
